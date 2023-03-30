@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet"  href="/frontend/static/style.css">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='style.css')}}">
 </head>
 <body>
   
@@ -21,9 +21,17 @@
     </nav>
     
 </div>
-<div class="message">
-    <p id="id-message">Welcome Username</p>
-    <p id="plot-message"> Your are allocated on Plot 1</p>
+<h2> Welcome To Park Management Services</h2>    
+
+<div>
+    <form id="form-1">
+    <div class="user-div"><label for="userid">UserID:</label>
+        <input type="text" name="userid" id="userid">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <button id="sub-button"><a href="{{ url_for('login')}}"> Log In </a></button> 
+    </form>
 </div>
 </body>
 </html>
