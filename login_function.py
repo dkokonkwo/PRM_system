@@ -1,4 +1,4 @@
-"""#!/usr/bin/python3"""
+# !/usr/bin/python3
 
 def check_authorization(agent_id, password):
     authorization_data = {
@@ -20,13 +20,17 @@ def check_authorization(agent_id, password):
             return authorization_data[agent_id]
     return False
 
-while True:
+
+if __name__ == "__main__":
     print("WELCOME TO PRM SYSTEM")
-    agent_id = input("Enter Agent ID: ").lower()
-    password = input("Enter Agent password: ").lower()
-    if check_authorization(agent_id, password):
-        print("Login successful!")
-        print("Your allocated plot is:", check_authorization(agent_id, password)['plot'])
-        break
-    else:
-        print("Login unsuccessful. Please try again.")
+    while True:
+        agent_id = input("Enter Agent ID: ").lower()
+        password = input("Enter Agent password: ").lower()
+        if check_authorization(agent_id, password):
+            print("Login successful!")
+            print("Your allocated plot is:", check_authorization(agent_id, password)['plot'])
+            break
+        else:
+            print("Login unsuccessful. Please try again.")
+
+
