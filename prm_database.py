@@ -26,3 +26,5 @@ mycursor = db.cursor()
 
 mycursor.execute("SELECT * FROM login")
 
+
+        

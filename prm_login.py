@@ -2,27 +2,37 @@ from prm_database import mycursor
 
 
 allocated = []
+database = mycursor.fetchall()
+
 def check_login(agent_id, password):
-    agent_id = agent_id.lower()
-    password = password.lower()
-    for agent in mycursor.fetchall():
-        if agent_id in agent and password in agent:
-            allocated.append(agent[2])
-    return allocated
+    new = database
+    for i in new:
+        if agent_id in i and password in i:
+            allocated.append(i[2])
+            return True
 
 
-if __name__ == "__main__":
-    print("WELCOME TO PRM SYSTEM")
-    while allocated == []:
-        agent_id = input("Enter Agent ID: ").lower()
-        password = input("Enter Agent password: ").lower()
-        check_login(agent_id, password)
-        print(agent_id, password, allocated)
-        if allocated != []:
-            print("Login successful!")
-            print("Your allocated plot is:", allocated[0])
-            break
+print('WELCOME TO PRM SYSTEM!')
+print("LOG IN HERE")
+while True:
+    id = input("Enter Agent ID:")
+    pword = input("Enter Agent password:")
+    check_login(id, pword)
+    print(check_login(id, pword))
+    if check_login(id, pword):
+        print("Login successful!")
+        print("Your allocated plot is:", allocated[0])
+        break
+    else:
+        allocated = []
+        print("Login unsuccessful.")
+        question = input("Do you want to try again? [y/n]: ")
+        if question == 'y':
+            continue
+        elif question == 'n':
+            quit()
         else:
-            agent_id = ''
-            password = ''
-            print("Login unsuccessful. Please try again.")
+            print("Incorrect input.")
+            quit()
+
+
