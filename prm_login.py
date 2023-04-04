@@ -30,9 +30,8 @@ while True:
         if question == 'y':
             continue
         elif question == 'n':
+            print("Thank you, goodbye")
             quit()
         else:
             print("Incorrect input.")
             quit()
-
-
