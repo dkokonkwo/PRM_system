@@ -18,7 +18,6 @@ while True:
     id = input("Enter Agent ID:")
     pword = input("Enter Agent password:")
     check_login(id, pword)
-    print(check_login(id, pword))
     if check_login(id, pword):
         print("Login successful!")
         print("Your allocated plot is:", allocated[0])
